@@ -33,12 +33,22 @@
 	return s ? s[1] : false;
 }
 
-
 		function myFunc()
 		{
+			
 			var get_url_id = $_GET('id');
+			if(get_url_id == false){
+				get_url_id = 23801;
+			}
 			var name = $('#name').val();
 			var description = $('#description').val();
+			if(name == ''){
+				alert('Заполните поле "Название компании"');
+				return false;
+			} else if(description == ''){
+				alert('Заполните поле "Описание компании"');
+				return false;
+			}
 			$.ajax({
 			  type: "POST",
 			  url: "/main",
